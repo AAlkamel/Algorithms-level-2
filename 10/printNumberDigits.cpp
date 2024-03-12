@@ -13,28 +13,21 @@ int ReadPositiveNumber(string message)
 
   return num;
 }
-void PrintReversNumber()
-{
-  int number = ReadPositiveNumber("please enter positive number");
-  cout << "\n\nthe revers number is:\n";
-  do
-  {
-    if (number <= 9)
-      cout << number << endl;
-    else
-    {
-      cout << number % 10 << endl;
-      number /= 10;
-      if (number <= 9)
-        cout << number << endl;
-    }
 
-  } while (number > 9);
-}
-void PrintReversNumberHadhood()
+int ReversNumber(int number)
 {
-  int number = ReadPositiveNumber("please enter positive number");
-  cout << "\n\nthe revers number is:\n";
+  int Remainder = 0, ReversNumber = 0;
+  while (number > 0)
+  {
+    Remainder = number % 10;
+    number /= 10;
+
+    ReversNumber = ReversNumber * 10 + Remainder;
+  }
+  return ReversNumber;
+}
+void PrintNumberDigit(int number)
+{
   int Remainder = 0;
   while (number > 0)
   {
@@ -50,7 +43,7 @@ int main()
   do
   {
     system("cls");
-    PrintReversNumberHadhood();
+    PrintNumberDigit(ReversNumber(ReadPositiveNumber("please enter positive number")));
     cout << "\n========================\n\ndo this again yes or no [y/n] \n\n";
     cin >> again;
   } while (again == 'y' || again == 'Y');
