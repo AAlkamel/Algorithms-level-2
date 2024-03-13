@@ -17,6 +17,7 @@ int GetRandomCharacter(eCharType CharType)
 {
   switch (CharType)
   {
+    // https://www.asciitable.com/
   case eCharType::SmallLetter:
     return RandomNumber(97, 122);
     break;
